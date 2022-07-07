@@ -1,12 +1,8 @@
-<div id="<%= dom_id book %>">
-  <p>
-    <strong>Name:</strong>
-    <%= book.name %>
-  </p>
-
-  <p>
-    <strong>Author:</strong>
-    <%= book.author %>
-  </p>
-
-</div>
+<tr id="<%= book.id %>">
+  <td><%= book.name %></td>
+  <td><%= book.author %></td>
+  <td>
+    <%= link_to "edit_book_#{book.id}", edit_book_path(book) %>
+    <%= button_to "delete_book_#{book.id}", book, :method => :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %>
+  </td>
+</tr>
